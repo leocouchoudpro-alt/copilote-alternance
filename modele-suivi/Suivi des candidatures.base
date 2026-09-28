@@ -1,0 +1,100 @@
+filters:
+  and:
+    - file.hasTag("piste")
+    - file.folder.contains("Pistes")
+    - '!file.folder.contains("Modèles")'
+formulas:
+  jours_sans_action: 'if(derniere_action, (today() - date(derniere_action)).days, "")'
+  a_relancer: 'if(derniere_action, if((statut == "Envoyée" || statut == "Relancée") && (today() - date(derniere_action)).days >= 7, "⏰ À relancer", ""), "")'
+  statut_affiche: 'if(statut == "Acceptée", "🎉 Acceptée", if(statut == "Refusée", "❌ Refusée", if(statut == "Entretien", "🗣️ Entretien", if(statut == "Relancée", "🔁 Relancée", if(statut == "Envoyée", "📤 Envoyée", if(statut == "Piste chaude", "🔥 Piste chaude", if(statut == "En veille", "⏸️ En veille", if(statut == "Écartée", "🚫 Écartée", if(statut == "Close", "🗄️ Close", "📋 À contacter")))))))))'
+properties:
+  poste:
+    displayName: Poste
+  ville:
+    displayName: Ville
+  domaine:
+    displayName: Domaine
+  canal:
+    displayName: Canal
+  contact:
+    displayName: Contact
+  date_envoi:
+    displayName: Envoyée le
+  derniere_action:
+    displayName: Dernière action
+  prochaine_action:
+    displayName: Prochaine action
+  formula.statut_affiche:
+    displayName: Statut
+  formula.jours_sans_action:
+    displayName: Jours sans action
+  formula.a_relancer:
+    displayName: Relance
+  statut_avant_cloture:
+    displayName: Dernier statut
+views:
+  - type: table
+    name: En cours
+    filters:
+      and:
+        - '!file.folder.contains("Archive")'
+        - 'statut != "Refusée"'
+        - 'statut != "Acceptée"'
+        - 'statut != "Écartée"'
+    order:
+      - file.name
+      - formula.statut_affiche
+      - formula.a_relancer
+      - ville
+      - date_envoi
+      - formula.jours_sans_action
+      - prochaine_action
+  - type: table
+    name: À relancer
+    filters:
+      and:
+        - '!file.folder.contains("Archive")'
+        - 'formula.a_relancer != ""'
+    order:
+      - file.name
+      - formula.statut_affiche
+      - date_envoi
+      - derniere_action
+      - contact
+  - type: table
+    name: Toutes
+    filters:
+      and:
+        - '!file.folder.contains("Archive")'
+    order:
+      - file.name
+      - formula.statut_affiche
+      - ville
+      - domaine
+      - canal
+      - date_envoi
+      - derniere_action
+      - prochaine_action
+  - type: table
+    name: Terminées
+    filters:
+      or:
+        - 'statut == "Refusée"'
+        - 'statut == "Acceptée"'
+        - 'statut == "Écartée"'
+    order:
+      - file.name
+      - formula.statut_affiche
+      - ville
+      - derniere_action
+  - type: table
+    name: Archive
+    filters:
+      and:
+        - file.folder.contains("Archive")
+    order:
+      - file.name
+      - statut_avant_cloture
+      - ville
+      - date_envoi
+      - derniere_action

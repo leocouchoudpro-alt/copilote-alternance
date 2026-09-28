@@ -1,0 +1,3 @@
+# Pour fabriquer le CV et les lettres en PDF (documents/)
+reportlab>=3.6
+PyYAML>=5.1

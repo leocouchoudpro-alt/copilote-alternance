@@ -1,0 +1,93 @@
+# CV d'exemple : Camille Dupont est un personnage fictif.
+# Pendant /demarrer, Claude crée documents/cv.yml (privé) à partir de ton vrai CV.
+# Fabriquer le PDF : python3 documents/generer_cv.py
+# Astuces : **mot** s'écrit en gras ; évite les emojis (la police ne les affiche pas).
+
+identite:
+  prenom: Camille
+  nom: Dupont
+  ville: Lyon                      # sert à la date des lettres
+  sous_titre: Communication & Marketing digital
+
+contact:
+  - Lyon, France
+  - 06 00 00 00 00
+  - camille.dupont@example.com
+  - linkedin.com/in/exemple
+  - portfolio.example.com
+
+couleurs:
+  fond: "#1E2D3D"      # barre latérale
+  accent: "#52BCD0"    # titres et détails
+
+profil: >
+  Diplômée d'un BUT Information-Communication, avec une première expérience en agence
+  en rédaction web, réseaux sociaux et suivi de performance. Je recherche une alternance
+  de 2 ans en communication digitale dans le cadre de mon Master à l'École Exemple
+  (rentrée septembre 2026), rythme 3 jours en entreprise et 2 jours de cours.
+
+competences:
+  - titre: Communication digitale
+    elements: [Réseaux sociaux, Rédaction web, Référencement naturel, Stratégie de contenu]
+  - titre: Outils
+    elements: [Canva, Suite Adobe (bases), WordPress, Google Analytics, Notion]
+  - titre: Gestion de projet
+    elements: [Planning éditorial, Coordination d'équipe, Budget d'événement]
+
+langues:
+  - Français - langue maternelle
+  - Anglais - courant (B2)
+  - Espagnol - notions
+
+certifications:
+  - Certification Google Analytics (2026)
+
+interets:
+  - Volley-ball en club
+  - Photographie
+
+experiences:
+  - poste: Stagiaire communication digitale
+    entreprise: Agence Exemple
+    dates: Avril 2026 - Juin 2026
+    lieu: Lyon
+    missions:
+      - Rédaction de 12 articles de blog optimisés pour le référencement, **+35 % de visites** sur ces pages en 3 mois
+      - Animation du compte Instagram d'un client (3 publications par semaine) et suivi des statistiques
+      - Participation aux réunions de lancement et aux bilans mensuels avec les clients
+  - poste: Présidente
+    entreprise: Bureau des étudiants
+    dates: Septembre 2024 - Juin 2026
+    lieu: Université Exemple
+    missions:
+      - Organisation d'un gala de 300 personnes avec un budget de 8 000 euros
+      - Négociation avec 6 partenaires et coordination d'une équipe de 12 bénévoles
+
+formation:
+  - diplome: Master Communication digitale (en alternance)
+    ecole: École Exemple
+    dates: 2026 - 2028
+    detail: Stratégie de marque, marketing de contenu, pilotage de la performance.
+  - diplome: BUT Information-Communication
+    ecole: Université Exemple
+    dates: 2023 - 2026
+    detail: Parcours communication des organisations.
+
+projets:
+  - nom: Campagne associative
+    description: stratégie de contenus sur 2 mois pour une association locale, 2 000 abonnés gagnés.
+  - nom: Refonte de site
+    description: nouvelle arborescence et rédaction des pages d'un club sportif sous WordPress.
+
+# Une variante par candidature : seuls le sous-titre, le profil et l'ordre des compétences changent.
+# Les faits (expériences, dates, chiffres) ne changent jamais.
+variantes:
+  studio-lumen:
+    sous_titre: Communication digitale & Contenus
+    profil: >
+      Diplômée d'un BUT Information-Communication, j'ai rédigé et optimisé des contenus web
+      en agence et animé les réseaux sociaux d'un client, avec un suivi précis des résultats.
+      Je recherche une alternance de 2 ans en communication digitale (rentrée septembre 2026,
+      3 jours en entreprise et 2 jours de cours) pour contribuer à la production de contenus
+      d'un studio créatif.
+    ordre_competences: [Communication digitale, Outils, Gestion de projet]

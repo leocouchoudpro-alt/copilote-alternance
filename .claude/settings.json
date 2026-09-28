@@ -1,0 +1,31 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/routine-releve.sh\"",
+            "timeout": 10,
+            "statusMessage": "Copilote alternance : chargement de la routine..."
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(python3 scripts/diagnostic.py)",
+      "Bash(python3 scripts/diagnostic.py *)",
+      "Bash(python3 scripts/obsidian.py coffres)",
+      "Bash(python3 scripts/obsidian.py coffres *)",
+      "Bash(python3 scripts/obsidian.py ouvrir *)",
+      "Bash(python3 scripts/verifier_donnees_perso.py)",
+      "Bash(python3 scripts/verifier_donnees_perso.py *)",
+      "Bash(python3 documents/generer_cv.py)",
+      "Bash(python3 documents/generer_cv.py *)",
+      "Bash(python3 documents/generer_lettre.py *)"
+    ]
+  }
+}

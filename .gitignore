@@ -1,0 +1,19 @@
+# ------------------------------------------------------------
+# Tes données personnelles : elles ne partent JAMAIS sur GitHub
+# ------------------------------------------------------------
+profil/profil.md
+suivi/
+documents/cv.yml
+documents/lettres/*
+!documents/lettres/exemple-*.md
+documents/sortie/
+.donnees-perso
+.claude/settings.local.json
+
+# Système et outils
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+.venv/
+.obsidian/
